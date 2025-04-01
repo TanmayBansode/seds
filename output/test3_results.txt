@@ -1,0 +1,4 @@
+Class: with helmet, Confidence: 0.99, BBox: (503.57, 52.71, 538.32, 94.40)
+Class: rider, Confidence: 0.96, BBox: (466.97, 52.60, 571.02, 276.47)
+Class: with helmet, Confidence: 0.89, BBox: (384.57, 73.35, 434.88, 128.70)
+Class: rider, Confidence: 0.89, BBox: (337.26, 71.96, 480.89, 425.54)
