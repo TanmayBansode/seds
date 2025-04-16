@@ -1,0 +1,9 @@
+# gitignore file should include root directory .mp4 .pt files
+# and any other files you want to ignore
+
+.DS_Store
+
+*.mp4
+*.pt
+*.json
+*.zip

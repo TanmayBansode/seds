@@ -1,0 +1,1 @@
+Class: Pothole, Confidence: 0.29, BBox: (10.08, 91.52, 233.81, 143.40)
