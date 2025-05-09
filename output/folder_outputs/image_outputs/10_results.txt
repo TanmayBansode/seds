@@ -1,0 +1,2 @@
+Class: Truck, Confidence: 0.89, BBox: (4.36, 0.00, 783.35, 768.00)
+Class: Truck, Confidence: 0.34, BBox: (82.42, 35.28, 1024.00, 694.29)

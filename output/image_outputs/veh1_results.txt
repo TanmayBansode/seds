@@ -1,0 +1,4 @@
+Class: Car, Confidence: 0.96, BBox: (685.93, 421.46, 950.56, 631.22)
+Class: Truck, Confidence: 0.93, BBox: (913.17, 279.68, 1022.94, 420.04)
+Class: Truck, Confidence: 0.92, BBox: (552.31, 216.00, 858.28, 559.56)
+Class: Bike, Confidence: 0.84, BBox: (1027.75, 386.64, 1084.43, 499.71)

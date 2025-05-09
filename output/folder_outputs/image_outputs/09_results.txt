@@ -1,2 +1,3 @@
-Class: Helmet, Confidence: 0.76, BBox: (146.98, 23.71, 175.56, 53.90)
-Class: No Helmet, Confidence: 0.47, BBox: (125.86, 34.58, 147.59, 58.41)
+Class: Car, Confidence: 0.93, BBox: (0.00, 42.41, 98.44, 96.74)
+Class: Cycle-Rickshaw, Confidence: 0.78, BBox: (49.01, 0.47, 260.17, 162.72)
+Class: Person, Confidence: 0.31, BBox: (94.96, 31.41, 108.07, 81.07)

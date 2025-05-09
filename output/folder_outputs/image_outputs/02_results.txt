@@ -1,1 +1,1 @@
-Class: Pothole, Confidence: 0.29, BBox: (10.08, 91.52, 233.81, 143.40)
+Class: Car, Confidence: 0.87, BBox: (62.98, 0.00, 156.19, 54.53)

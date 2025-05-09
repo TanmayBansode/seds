@@ -3,7 +3,7 @@ from yolo import load_model, run_inference_on_image, run_inference_on_video, run
 import argparse
 
 # Load model
-model, device = load_model("best12.pt")
+model, device = load_model("vehicle_m.pt")
 print("Model class names:", model.names)
 print("Device:", device)
 

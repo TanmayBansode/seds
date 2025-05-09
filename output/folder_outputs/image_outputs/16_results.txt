@@ -1,1 +1,2 @@
-Class: No Helmet, Confidence: 0.92, BBox: (76.80, 1.34, 114.71, 37.95)
+Class: Cycle-Rickshaw, Confidence: 0.39, BBox: (0.21, 0.84, 228.46, 183.00)
+Class: Bike, Confidence: 0.29, BBox: (0.33, 0.00, 248.22, 182.40)

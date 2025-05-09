@@ -1,0 +1,1 @@
+Class: Auto-Rickshaw, Confidence: 0.29, BBox: (117.63, 0.00, 1200.00, 675.00)

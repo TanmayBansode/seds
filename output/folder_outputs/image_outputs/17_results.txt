@@ -1,1 +1,1 @@
-Class: No Helmet, Confidence: 0.63, BBox: (156.06, 5.98, 180.75, 34.09)
+Class: Bike, Confidence: 0.97, BBox: (69.27, 6.07, 225.25, 155.06)
