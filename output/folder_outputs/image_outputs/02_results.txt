@@ -1,1 +1,0 @@
-Class: Car, Confidence: 0.87, BBox: (62.98, 0.00, 156.19, 54.53)

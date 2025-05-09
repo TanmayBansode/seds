@@ -1,3 +1,0 @@
-Class: Jeep, Confidence: 0.92, BBox: (182.18, 49.39, 298.65, 131.87)
-Class: Tempo, Confidence: 0.77, BBox: (109.22, 55.05, 155.17, 99.73)
-Class: Tempo, Confidence: 0.52, BBox: (154.25, 61.11, 191.97, 97.67)

@@ -1,1 +1,0 @@
-Class: Bike, Confidence: 0.92, BBox: (3.26, 2.83, 243.77, 180.81)

@@ -1,2 +1,0 @@
-Class: Cycle-Rickshaw, Confidence: 0.88, BBox: (1.47, 2.20, 281.10, 167.58)
-Class: Tempo, Confidence: 0.34, BBox: (0.74, 2.12, 284.60, 168.00)

@@ -1,4 +1,0 @@
-Class: Bike, Confidence: 0.95, BBox: (107.61, 47.03, 255.62, 162.21)
-Class: Person, Confidence: 0.88, BBox: (47.99, 49.85, 97.54, 164.05)
-Class: Person, Confidence: 0.86, BBox: (26.68, 42.47, 64.04, 164.35)
-Class: Person, Confidence: 0.62, BBox: (225.65, 44.81, 256.95, 161.27)

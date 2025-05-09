@@ -1,1 +1,0 @@
-Class: Jeep, Confidence: 0.89, BBox: (100.93, 59.47, 241.69, 121.01)

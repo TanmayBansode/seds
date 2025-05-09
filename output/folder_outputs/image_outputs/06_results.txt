@@ -1,2 +1,0 @@
-Class: Bike, Confidence: 0.73, BBox: (15.34, 3.05, 259.00, 182.44)
-Class: Bike, Confidence: 0.40, BBox: (0.43, 0.15, 77.56, 44.42)

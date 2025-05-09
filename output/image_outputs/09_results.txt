@@ -1,2 +1,0 @@
-Class: Helmet, Confidence: 0.76, BBox: (146.98, 23.71, 175.56, 53.90)
-Class: No Helmet, Confidence: 0.47, BBox: (125.86, 34.58, 147.59, 58.41)

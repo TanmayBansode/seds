@@ -1,3 +1,0 @@
-Class: Bus, Confidence: 0.36, BBox: (0.00, 45.15, 199.27, 205.94)
-Class: Tempo, Confidence: 0.36, BBox: (0.14, 44.30, 192.78, 206.15)
-Class: Auto-Rickshaw, Confidence: 0.27, BBox: (0.00, 52.05, 201.00, 207.48)
