@@ -1,9 +1,10 @@
 import os
 from yolo import load_model, run_inference_on_image, run_inference_on_video, run_inference_on_folder
 import argparse
+from config import model_file
 
 # Load model
-model, device = load_model("vehicle_m.pt")
+model, device = load_model(model_file)
 print("Model class names:", model.names)
 print("Device:", device)
 

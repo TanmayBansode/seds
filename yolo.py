@@ -10,11 +10,11 @@ video_formats = ['ts', 'mp4', 'mpg', 'asf', 'mov', 'mkv', 'gif', 'webm', 'm4v', 
 # Load YOLO model
 def load_model(model_path="best12.pt"):
     """Loads the YOLO model from the given path."""
-    # Determine device
+
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     print(f"Using device: {device}")
     model = YOLO(model_path)
-    model.to(device) # Ensure model is on the correct device
+    model.to(device) 
     return model, device
 
 # Image inference  
@@ -129,8 +129,6 @@ def run_inference_on_video(model, video_path, output_dir, device,
         print(f"Processing speed: {processing_fps:.2f} FPS")
 
     return output_video_path
-
-# def run_live_inference(model, device):
 
 
 # Folder inference 

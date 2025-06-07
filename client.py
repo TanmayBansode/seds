@@ -6,7 +6,6 @@ import os
 import sys
 from datetime import datetime
 from ultralytics import YOLO
-# Removed redirect_stdout, redirect_stderr, io as verbose=False is preferred
 from collections import defaultdict
 
 # Server config
@@ -29,7 +28,8 @@ thread_lock = threading.Lock()
 print("[INFO] Loading YOLO model...")
 # Note: Initial loading might still print some messages,
 # but per-frame predictions will be silent with verbose=False
-model = YOLO("face.pt")
+model = YOLO("combined.pt") # Load the model from the specified path
+
 model.fuse()
 print("[INFO] YOLO model loaded.")
 
@@ -141,33 +141,35 @@ def process_frame(frame, current_time):
 
     return annotated_frame
 
-def main():
-    global active_threads # Allow modification of the global list
+def main(video_path):
+    global active_threads  # if you're using it
 
-    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-    if not cap.isOpened():
-        print("[ERROR] Cannot open camera")
+    if not os.path.exists(video_path):
+        print(f"[ERROR] File '{video_path}' not found.")
         sys.exit(1)
 
-    # Set desired frame width and height
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-    print(f"[INFO] Attempting to set resolution to {cap.get(cv2.CAP_PROP_FRAME_WIDTH)}x{cap.get(cv2.CAP_PROP_FRAME_HEIGHT)}")
+    cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        print("[ERROR] Cannot open video file")
+        sys.exit(1)
+
+    print(f"[INFO] Playing video: {video_path}")
+    print(f"[INFO] Video resolution: {cap.get(cv2.CAP_PROP_FRAME_WIDTH)}x{cap.get(cv2.CAP_PROP_FRAME_HEIGHT)}")
 
     start_time = time.time()
-    print(f"[INFO] Starting recording. Will stop after {RECORDING_DURATION_SEC} seconds or on 'q' press.")
+    print(f"[INFO] Starting playback. Will stop after {RECORDING_DURATION_SEC} seconds or on 'q' press.")
 
     try:
         while True:
             # Check elapsed time
             current_elapsed_time = time.time() - start_time
             if current_elapsed_time > RECORDING_DURATION_SEC:
-                print(f"\n[INFO] Recording time limit ({RECORDING_DURATION_SEC}s) reached.")
+                print(f"\n[INFO] Playback time limit ({RECORDING_DURATION_SEC}s) reached.")
                 break
 
             ret, frame = cap.read()
             if not ret:
-                print("[ERROR] Can't receive frame (stream end?). Exiting ...")
+                print("[INFO] End of video or can't receive frame.")
                 break
 
             # Process the frame
@@ -175,36 +177,33 @@ def main():
             annotated_frame = process_frame(frame, current_process_time)
 
             # Display the resulting frame
-            cv2.imshow("Live Detection", annotated_frame)
+            cv2.imshow("Video Detection", annotated_frame)
 
-            # Press 'q' to exit early
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                print("\n[INFO] 'q' pressed, stopping recording.")
+            if cv2.waitKey(30) & 0xFF == ord('q'):  # 30ms wait simulates ~33 FPS playback
+                print("\n[INFO] 'q' pressed, stopping playback.")
                 break
 
-            # Optional: Clean up finished threads periodically from the list
-            # This prevents the list from growing indefinitely if the script runs for a very long time
-            # with thread_lock:
-            #    active_threads = [t for t in active_threads if t.is_alive()]
-
     except KeyboardInterrupt:
-         print("\n[INFO] KeyboardInterrupt detected. Stopping.")
+        print("\n[INFO] KeyboardInterrupt detected. Stopping.")
     finally:
-        print("[INFO] Stopping video capture.")
+        print("[INFO] Releasing video resources.")
         cap.release()
         cv2.destroyAllWindows()
 
         print(f"[INFO] Main loop finished. Waiting for {len(active_threads)} pending uploads to complete...")
-        # Make a copy of the list to iterate over, as threads remove themselves
-        threads_to_wait_for = []
         with thread_lock:
             threads_to_wait_for = active_threads[:]
 
         for thread in threads_to_wait_for:
-            thread.join() # Wait for the thread to complete its task
+            thread.join()
 
         print("[INFO] All uploads finished.")
         print("[INFO] Script finished cleanly.")
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: python script.py <video_path>")
+        sys.exit(1)
+    main(sys.argv[1])
+
